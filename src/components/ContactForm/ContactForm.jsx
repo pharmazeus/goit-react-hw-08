@@ -3,8 +3,9 @@ import * as Yup from "yup";
 // import { nanoid } from "nanoid";
 import styles from "./ContactForm.module.css";
 import { useDispatch, useSelector } from "react-redux";
-import { selectContacts } from "../../redux/contactsSlice";
-import { addContacts } from "../../redux/contactsOps";
+import { selectContacts } from "../../redux/contacts/selectors";
+import { addContacts } from "../../redux/contacts/operations";
+import Button from "../Button/Button";
 
 const sighupSchema = Yup.object().shape({
   name: Yup.string()
@@ -58,9 +59,7 @@ export default function ContactForm() {
             <ErrorMessage name="number" />
           </div>
 
-          <button className={styles.btn} type="submit">
-            Add contact
-          </button>
+          <Button buttonTitle="Add contact" />
         </Form>
       </Formik>
     </div>

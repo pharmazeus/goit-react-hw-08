@@ -1,18 +1,29 @@
-.form {
-  max-width: 420px;
-  width: 90%;
-  margin: 32px auto;
+.container {
+  min-width: 320px;
+
+  margin: 40px auto;
   padding: 24px;
   background-color: #1f2937;
   border-radius: 12px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
   color: #f9fafb;
 }
 
-.field {
+.title {
+  font-size: 28px;
+  font-weight: 600;
+  margin-bottom: 24px;
+  text-align: center;
+  color: #ffffff;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.fieldWrapper {
   display: flex;
   flex-direction: column;
 }
@@ -38,35 +49,59 @@
   background-color: #4b5563;
 }
 
-/* ErrorMessage default styles (Formik) */
-.form div > div {
+.error {
+  margin-top: 6px;
   color: #f87171;
   font-size: 14px;
-  margin-top: 4px;
 }
 
-/* ============ MEDIA QUERIES ============ */
+.button {
+  padding: 12px 16px;
+  background-color: #3b82f6;
+  color: white;
+  font-weight: 600;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.button:hover {
+  background-color: #2563eb;
+}
+
+/* ========== MEDIA QUERIES ========== */
+
 @media (max-width: 768px) {
-  .form {
+  .container {
     padding: 20px;
+    margin: 32px auto;
   }
 
-  .btn {
+  .title {
+    font-size: 24px;
+  }
+
+  .button {
     font-size: 15px;
   }
 }
 
 @media (max-width: 480px) {
-  .form {
+  .container {
     padding: 16px;
-    gap: 16px;
+  }
+
+  .title {
+    font-size: 22px;
   }
 
   .input {
     font-size: 15px;
   }
 
-  .btn {
+  .button {
     font-size: 14px;
     padding: 10px 12px;
   }
