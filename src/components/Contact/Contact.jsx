@@ -2,6 +2,7 @@ import { FaUser, FaPhoneAlt } from "react-icons/fa";
 import styles from "./Contact.module.css";
 import { useDispatch } from "react-redux";
 import { deleteContacts } from "../../redux/contacts/operations";
+import { confirmAlert } from "react-confirm-alert";
 export default function Contact({ contact: { name, number, id } }) {
   const dispatch = useDispatch();
 
@@ -22,7 +23,21 @@ export default function Contact({ contact: { name, number, id } }) {
       <button
         className={styles.deleteBtn}
         type="button"
-        onClick={() => onDelete(id)}
+        onClick={() =>
+          confirmAlert({
+            title: "Confirm Delete",
+            message: `Are you sure you want to delete "${name}"?`,
+            buttons: [
+              {
+                label: "Yes",
+                onClick: () => onDelete(id),
+              },
+              {
+                label: "No",
+              },
+            ],
+          })
+        }
       >
         Delete
       </button>

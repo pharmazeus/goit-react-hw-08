@@ -1,14 +1,36 @@
-/* AppBar.module.css */
-
 .header {
-  width: 100%;
-  position: sticky;
   top: 0;
   left: 0;
+  right: 0;
+
+  width: 100vw;
   z-index: 1000;
+
+  height: 64px;
   background-color: #1f2937;
-  padding: 16px 5vw;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
+  align-items: center;
+  padding: 16px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.stickyWrapper {
+  width: 100%;
+  left: 0;
+  top: 0;
+  z-index: 1000;
+}
+
+.hide {
+  transform: translateY(-100%);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.show {
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: auto;
+  transition: transform 0.3s ease, opacity 0.3s ease;
 }

@@ -2,23 +2,24 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import css from "../RegistrationForm/RegistrationForm.module.css";
 import Button from "../Button/Button";
+import { useDispatch } from "react-redux";
+import { login } from "../../redux/auth/operations";
 
 export default function LoginForm() {
+  const dispatch = useDispatch();
+
   const handleSubmit = (values, actions) => {
-    // const newUserRegister = {
-    //   username: values.username,
-    //   email: values.email,
-    //   password: values.password,
-    // };
-    // console.log(newUserRegister);
+    console.log("99");
+
+    const userCredentials = {
+      email: values.email,
+      password: values.password,
+    };
+    dispatch(login(userCredentials));
     actions.resetForm();
   };
 
-  const signupSchema = Yup.object().shape({
-    username: Yup.string()
-      .min(3, "Too short!")
-      .max(30, "Max length!")
-      .required("Username is required!"),
+  const loginSchema = Yup.object().shape({
     email: Yup.string()
       .email("Invalid email format!")
       .required("Email is required!"),
@@ -33,7 +34,7 @@ export default function LoginForm() {
       <Formik
         initialValues={{ email: "", password: "" }}
         onSubmit={handleSubmit}
-        validationSchema={signupSchema}
+        validationSchema={loginSchema}
       >
         <Form className={css.form}>
           <div className={css.fieldWrapper}>
@@ -52,7 +53,7 @@ export default function LoginForm() {
             />
           </div>
 
-          <Button buttonTitle="Log in" />
+          <Button buttonTitle="Log in" type="submit" />
         </Form>
       </Formik>
     </div>

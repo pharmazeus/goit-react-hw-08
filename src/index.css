@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap");
+@import "react-confirm-alert/src/react-confirm-alert.css";
 :root {
   font-family: "Nunito Sans", serif;
   font-optical-sizing: auto;
@@ -17,7 +18,7 @@
   margin: 0 auto;
   display: flex;
   justify-content: center;
-  margin-top: 20px;
+
   flex-direction: column;
   align-items: center;
 }

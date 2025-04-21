@@ -12,6 +12,7 @@ import {
   selectLoading,
   selectError,
 } from "../redux/contacts/selectors";
+import { selectIsLoggedIn } from "../redux/auth/selectors";
 
 export default function ContactsPage() {
   const contacts = useSelector(selectContacts);
@@ -19,11 +20,13 @@ export default function ContactsPage() {
   const isLoading = useSelector(selectLoading);
   const isError = useSelector(selectError);
   const contactsOverall = useSelector(selectContactCount);
+  const isLoggedIn = useSelector(selectIsLoggedIn);
 
   useEffect(() => {
-    dispatch(fetchContacts());
-    console.log("dispatching fetchContacts from ContactsPage...");
-  }, [dispatch]);
+    if (isLoggedIn) {
+      dispatch(fetchContacts());
+    }
+  }, [isLoggedIn, dispatch]);
 
   return (
     <div className={css.container}>

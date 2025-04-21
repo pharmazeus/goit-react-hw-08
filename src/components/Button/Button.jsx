@@ -1,7 +1,8 @@
 import css from "../Button/Button.module.css";
-export default function Button({ buttonTitle, onClick }) {
+
+export default function Button({ buttonTitle, onClick, type = "button" }) {
   return (
-    <button type="submit" className={css.button} onClick={onClick}>
+    <button type={type} className={css.button} onClick={onClick}>
       {buttonTitle}
     </button>
   );

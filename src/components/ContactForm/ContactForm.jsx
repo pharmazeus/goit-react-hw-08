@@ -24,6 +24,8 @@ export default function ContactForm() {
   const contacts = useSelector(selectContacts);
 
   const handleSubmit = (values, actions) => {
+    console.log("pressed");
+
     const isDuplicate = contacts.some(
       (contact) => contact.name.toLowerCase() === values.name.toLowerCase()
     );
@@ -59,7 +61,7 @@ export default function ContactForm() {
             <ErrorMessage name="number" />
           </div>
 
-          <Button buttonTitle="Add contact" />
+          <Button buttonTitle="Add contact" type="submit" />
         </Form>
       </Formik>
     </div>

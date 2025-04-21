@@ -1,23 +1,29 @@
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import css from "./RegistrationForm.module.css";
+import { useDispatch } from "react-redux";
+import { register } from "../../redux/auth/operations";
 
 export default function RegistrationForm() {
+  const dispatch = useDispatch();
+
   const handleSubmit = (values, actions) => {
     const newUserRegister = {
-      username: values.username,
+      name: values.name, // 🔑 ключ для API
       email: values.email,
       password: values.password,
     };
+
     console.log(newUserRegister);
+    dispatch(register(newUserRegister)); // ✅ передаємо те, що треба
     actions.resetForm();
   };
 
   const signupSchema = Yup.object().shape({
-    username: Yup.string()
+    name: Yup.string()
       .min(3, "Too short!")
       .max(30, "Max length!")
-      .required("Username is required!"),
+      .required("Name is required!"),
     email: Yup.string()
       .email("Invalid email format!")
       .required("Email is required!"),
@@ -30,19 +36,15 @@ export default function RegistrationForm() {
     <div className={css.container}>
       <h2 className={css.title}>Register ✍️</h2>
       <Formik
-        initialValues={{ username: "", email: "", password: "" }}
+        initialValues={{ name: "", email: "", password: "" }}
         onSubmit={handleSubmit}
         validationSchema={signupSchema}
       >
         <Form className={css.form}>
           <div className={css.fieldWrapper}>
-            <label className={css.label}>Username:</label>
-            <Field name="username" type="text" className={css.input} />
-            <ErrorMessage
-              name="username"
-              component="div"
-              className={css.error}
-            />
+            <label className={css.label}>Name:</label>
+            <Field name="name" type="text" className={css.input} />
+            <ErrorMessage name="name" component="div" className={css.error} />
           </div>
 
           <div className={css.fieldWrapper}>
