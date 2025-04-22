@@ -9,13 +9,12 @@ export default function RegistrationForm() {
 
   const handleSubmit = (values, actions) => {
     const newUserRegister = {
-      name: values.name, // 🔑 ключ для API
+      name: values.name,
       email: values.email,
       password: values.password,
     };
 
-    console.log(newUserRegister);
-    dispatch(register(newUserRegister)); // ✅ передаємо те, що треба
+    dispatch(register(newUserRegister));
     actions.resetForm();
   };
 

@@ -8,6 +8,7 @@ import { selectIsLoggedIn } from "../../redux/auth/selectors";
 import Sticky from "react-sticky-el";
 import { useScrollDirection } from "../../hooks/useScrollyDirection";
 import { logout } from "../../redux/auth/operations";
+//
 export default function AppBar() {
   const isLoggedIn = useSelector(selectIsLoggedIn);
   const scrollDirection = useScrollDirection();

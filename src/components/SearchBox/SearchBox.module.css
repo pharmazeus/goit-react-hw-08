@@ -16,7 +16,6 @@
   text-align: center;
 }
 
-/* Обгортка для input + icon */
 .inputWrapper {
   position: relative;
   width: 100%;
@@ -41,7 +40,6 @@
   box-shadow: 0 0 10px rgba(59, 130, 246, 0.4);
 }
 
-/* Emoji іконка зліва (без SVG, щоб просто) */
 .searchIcon {
   position: absolute;
   top: 50%;
@@ -50,18 +48,4 @@
   font-size: 18px;
   pointer-events: none;
   color: #9ca3af;
-}
-
-/* ============ MEDIA ============ */
-
-@media (max-width: 480px) {
-  .searchInput {
-    padding: 10px 14px 10px 40px;
-    font-size: 15px;
-  }
-
-  .searchIcon {
-    font-size: 16px;
-    left: 10px;
-  }
 }

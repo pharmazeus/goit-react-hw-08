@@ -1,8 +1,5 @@
 import axios from "axios";
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { useDispatch } from "react-redux";
-
-axios.defaults.baseURL = "https://connections-api.goit.global";
 
 export const fetchContacts = createAsyncThunk(
   "contacts/fetchContacts",
@@ -37,10 +34,6 @@ export const deleteContacts = createAsyncThunk(
       console.log("deleting...");
       return response.data;
     } catch (error) {
-      if (error.response?.status === "401") {
-        console.warn("🛑 Unauthorized! Status 401");
-        useDispatch();
-      }
       return thunkAPI.rejectWithValue(error.message);
     }
   }

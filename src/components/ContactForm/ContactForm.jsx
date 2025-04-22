@@ -24,8 +24,6 @@ export default function ContactForm() {
   const contacts = useSelector(selectContacts);
 
   const handleSubmit = (values, actions) => {
-    console.log("pressed");
-
     const isDuplicate = contacts.some(
       (contact) => contact.name.toLowerCase() === values.name.toLowerCase()
     );

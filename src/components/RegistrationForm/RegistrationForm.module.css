@@ -70,39 +70,3 @@
 .button:hover {
   background-color: #2563eb;
 }
-
-/* ========== MEDIA QUERIES ========== */
-
-@media (max-width: 768px) {
-  .container {
-    padding: 20px;
-    margin: 32px auto;
-  }
-
-  .title {
-    font-size: 24px;
-  }
-
-  .button {
-    font-size: 15px;
-  }
-}
-
-@media (max-width: 480px) {
-  .container {
-    padding: 16px;
-  }
-
-  .title {
-    font-size: 22px;
-  }
-
-  .input {
-    font-size: 15px;
-  }
-
-  .button {
-    font-size: 14px;
-    padding: 10px 12px;
-  }
-}

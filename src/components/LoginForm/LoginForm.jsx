@@ -9,8 +9,6 @@ export default function LoginForm() {
   const dispatch = useDispatch();
 
   const handleSubmit = (values, actions) => {
-    console.log("99");
-
     const userCredentials = {
       email: values.email,
       password: values.password,

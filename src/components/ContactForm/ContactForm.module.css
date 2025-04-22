@@ -38,36 +38,8 @@
   background-color: #4b5563;
 }
 
-/* ErrorMessage default styles (Formik) */
 .form div > div {
   color: #f87171;
   font-size: 14px;
   margin-top: 4px;
-}
-
-/* ============ MEDIA QUERIES ============ */
-@media (max-width: 768px) {
-  .form {
-    padding: 20px;
-  }
-
-  .btn {
-    font-size: 15px;
-  }
-}
-
-@media (max-width: 480px) {
-  .form {
-    padding: 16px;
-    gap: 16px;
-  }
-
-  .input {
-    font-size: 15px;
-  }
-
-  .btn {
-    font-size: 14px;
-    padding: 10px 12px;
-  }
 }

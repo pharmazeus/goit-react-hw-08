@@ -5,10 +5,25 @@ import { deleteContacts } from "../../redux/contacts/operations";
 import { confirmAlert } from "react-confirm-alert";
 export default function Contact({ contact: { name, number, id } }) {
   const dispatch = useDispatch();
-
+  const handleSubmit = () => {
+    confirmAlert({
+      title: "Confirm Delete",
+      message: `Are you sure you want to delete "${name}"?`,
+      buttons: [
+        {
+          label: "Yes",
+          onClick: () => onDelete(id),
+        },
+        {
+          label: "No",
+        },
+      ],
+    });
+  };
   const onDelete = (id) => {
     dispatch(deleteContacts(id));
   };
+
   return (
     <div className={styles.contact}>
       <ul className={styles.info}>
@@ -20,25 +35,7 @@ export default function Contact({ contact: { name, number, id } }) {
           {number}
         </li>
       </ul>
-      <button
-        className={styles.deleteBtn}
-        type="button"
-        onClick={() =>
-          confirmAlert({
-            title: "Confirm Delete",
-            message: `Are you sure you want to delete "${name}"?`,
-            buttons: [
-              {
-                label: "Yes",
-                onClick: () => onDelete(id),
-              },
-              {
-                label: "No",
-              },
-            ],
-          })
-        }
-      >
+      <button className={styles.deleteBtn} type="button" onClick={handleSubmit}>
         Delete
       </button>
     </div>
