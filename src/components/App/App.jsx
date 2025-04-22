@@ -25,7 +25,7 @@ export default function App() {
   }, [dispatch]);
 
   if (isRefreshing) {
-    return <strong>Loading data, wait please...</strong>;
+    return <Loader />;
   }
 
   return (
